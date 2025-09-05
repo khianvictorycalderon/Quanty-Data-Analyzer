@@ -20,7 +20,7 @@ export default function NavBar() {
     ]
 
     return (
-        <nav className="bg-neutral-800 px-4 w-full">
+        <nav className="hidden lg:block bg-neutral-800 px-8 w-full text-center justify-center">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <h1 className="text-2xl font-bold items-center">QUANTY</h1>
                 <div className="flex items-center">
