@@ -53,7 +53,7 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
-            <RxHamburgerMenu className="text-4xl md:text-6xl fixed top-[16px] right-[16px] cursor-pointer" onClick={() => setIsSmallMenuShown(true)} />
+            <RxHamburgerMenu className="lg:hidden text-4xl md:text-6xl fixed top-[16px] right-[16px] cursor-pointer" onClick={() => setIsSmallMenuShown(true)} />
 
             {/* Desktop Navbar */}
             <nav className="hidden lg:block bg-neutral-800 px-8 w-full text-center justify-center fixed top-0 left-0 z-100">
