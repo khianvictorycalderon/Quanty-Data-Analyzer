@@ -12,8 +12,8 @@ export default function App() {
       <Hero 
         heading={heroHeading}
         subheading={heroSubHeading}
-        buttonLabel=""
-        buttonOnClick={() => {}}
+        buttonLabel="Get Started"
+        buttonOnClick={() => alert("Get Started Clicked!")}
       />
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
