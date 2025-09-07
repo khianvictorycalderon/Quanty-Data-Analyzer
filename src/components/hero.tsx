@@ -14,7 +14,7 @@ export default function Hero({
     return (
         <section className="h-screen px-8 flex-1">
             <div className="max-w-7xl h-full mx-auto flex flex-col-reverse lg:flex-row">
-                <div className="flex-1/2 flex flex-col justify-center">
+                <div className="flex-1/2 flex flex-col justify-center md:justify-start lg:justify-center">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold inline-block">{heading}</h1>
                         <h1 className="text-2xl max-w-fit mt-2">{subheading}</h1>
