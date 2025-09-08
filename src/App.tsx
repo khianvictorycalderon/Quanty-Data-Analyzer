@@ -1,5 +1,6 @@
 import Hero from "./components/hero";
 import NavBar from "./components/navbar";
+import OpSec from "./components/opsec";
 
 export default function App() {
 
@@ -15,6 +16,8 @@ export default function App() {
         buttonLabel="Get Started"
         buttonOnClick={() => alert("Get Started Clicked!")}
       />
+      <OpSec/>
+      
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
