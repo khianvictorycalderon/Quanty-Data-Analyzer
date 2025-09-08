@@ -2,6 +2,7 @@ import About from "./components/about";
 import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import OpSec from "./components/opsec";
+import Privacy_Terms from "./components/privac&terms";
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
       />
       <OpSec/>
       <About/>
+      <Privacy_Terms/>
       
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
