@@ -1,3 +1,4 @@
+import About from "./components/about";
 import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import OpSec from "./components/opsec";
@@ -17,6 +18,7 @@ export default function App() {
         buttonOnClick={() => alert("Get Started Clicked!")}
       />
       <OpSec/>
+      <About/>
       
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
       <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
