@@ -22,7 +22,11 @@ const InputSection = () => {
                 
                 <div className="flex flex-col">
                     <p className="font-bold">Enter data set: </p>
-                    <input className="bg-neutral-50 text-black mt-2 p-2 outline-none rounded focus:ring-2 focus:ring-blue-600" type="text" />
+                    <input 
+                        className="bg-neutral-50 text-black mt-2 p-2 outline-none rounded focus:ring-2 focus:ring-blue-600" 
+                        type="text"
+                        placeholder="1,2,3,4,5,6..."
+                        />
 
                     <p className="font-bold mt-2">Data type: </p>
                     <select className="bg-neutral-50 text-black mt-2 p-2 outline-none rounded focus:ring-2 focus:ring-blue-600 w-full md:w-[50%]">
