@@ -1,3 +1,10 @@
+import { useState } from "react"
+
+interface OpSecData {
+    title: string;
+    content: React.ReactNode;
+}
+
 export default function OpSec() {
     return (
         <div className="bg-neutral-800 px-8">
@@ -29,7 +36,6 @@ const InputSection = () => {
                     </button>
 
                 </div>
-                
 
             </div>
             <div className="flex-1/2">
@@ -37,11 +43,11 @@ const InputSection = () => {
                 <p className="text-base mt-2 leading-8">
                     Enter data in the input field separated by comma {"(,)"} <br/>
                     Examples: <br/>
-                    <ul className="list-inside">
-                        <li className="list-disc">1,5,7,10</li>
-                        <li className="list-disc">5,9,12,-13,0</li>
-                    </ul>
                 </p>
+                <ul className="list-inside">
+                    <li className="list-disc">1,5,7,10</li>
+                    <li className="list-disc">5,9,12,-13,0</li>
+                </ul>
             </div>
 
         </div>
@@ -50,7 +56,7 @@ const InputSection = () => {
 
 const OutputSection = () => {
 
-    const contentData = [
+    const [opsecData, setOpSecData] = useState<OpSecData[]>([
         {
             title: "Mean",
             content: <span>Solution here...</span>
@@ -75,11 +81,11 @@ const OutputSection = () => {
             title: "Standard Deviation",
             content: <span>Solution here...</span>
         },
-    ]
+    ]);
 
     return (
         <div className="max-w-7xl mx-auto flex flex-col pb-8">
-            {contentData.map((item, index) => (
+            {opsecData.map((item, index) => (
                 <div className="flex flex-col md:flex-row" key={`${item.title}-${index}`}>
                     <h1 className="text-2xl font-bold flex-1/5 border-2 flex justify-center items-center">{item.title}</h1>
                     <div className="flex-4/5 border-2 min-h-[150px] p-2">
