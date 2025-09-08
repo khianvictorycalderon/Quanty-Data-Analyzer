@@ -4,6 +4,7 @@ import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import OpSec from "./components/opsec";
 import Privacy_Terms from "./components/privac&terms";
+import { slideToID } from "./Utility";
 
 export default function App() {
 
@@ -17,8 +18,9 @@ export default function App() {
         heading={heroHeading}
         subheading={heroSubHeading}
         buttonLabel="Get Started"
-        buttonOnClick={() => alert("Get Started Clicked!")}
+        buttonOnClick={() => slideToID("opsec", 70)}
       />
+      <div id="opsec"/>
       <OpSec/>
       <About/>
       <Privacy_Terms/>
