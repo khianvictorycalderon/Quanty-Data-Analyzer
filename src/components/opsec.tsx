@@ -1,8 +1,13 @@
 import { useState } from "react"
 
-interface OpSecData {
+interface OpSecDataProps {
     title: string;
     content: React.ReactNode;
+}
+
+interface InputFieldsProps {
+    input: string;
+    type: "population" | "sample" | null;
 }
 
 export default function OpSec() {
@@ -15,6 +20,12 @@ export default function OpSec() {
 }
 
 const InputSection = () => {
+
+    const [input, setInput] = useState<InputFieldsProps>({
+        input: "",
+        type: null
+    })
+
     return (
         <div className="max-w-7xl mx-auto py-4 lg:py-8 flex flex-col-reverse md:flex-row gap-4 md:gap-8">
 
@@ -60,7 +71,7 @@ const InputSection = () => {
 
 const OutputSection = () => {
 
-    const [opsecData, setOpSecData] = useState<OpSecData[]>([
+    const [opsecData, setOpSecData] = useState<OpSecDataProps[]>([
         {
             title: "Mean",
             content: <span>Solution here...</span>
