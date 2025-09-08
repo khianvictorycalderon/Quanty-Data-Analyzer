@@ -1,4 +1,5 @@
 import About from "./components/about";
+import Footer from "./components/footer";
 import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import OpSec from "./components/opsec";
@@ -21,47 +22,7 @@ export default function App() {
       <OpSec/>
       <About/>
       <Privacy_Terms/>
-      
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
-      <h1>asjfkasjfkasfjlksafjsakfjlsakfjksalf</h1>
+      <Footer/>
     </>
   )
 }
