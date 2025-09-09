@@ -15,6 +15,7 @@ export default function App() {
   return (
     <>
       <NavBar/>
+      <div id="hero"/>
       <Hero 
         heading={heroHeading}
         subheading={heroSubHeading}
@@ -23,7 +24,9 @@ export default function App() {
       />
       <div id="opsec"/>
       <OpSec/>
+      <div id="about"/>
       <About/>
+      <div id="privacy_terms"/>
       <Privacy_Terms/>
       <Footer/>
     </>

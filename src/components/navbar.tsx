@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { IoClose } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { slideToID } from "../utility";
 
 export default function NavBar() {
 
@@ -8,19 +9,31 @@ export default function NavBar() {
     const navbarButtons = [
         {
             label: "HOME",
-            onClick: () => alert("Home Clicked!")
+            onClick: () => {
+                slideToID("hero");
+                setIsSmallMenuShown(false);
+            }
         },
         {
             label: "ABOUT",
-            onClick: () => alert("About Clicked!")
+            onClick: () => {
+                slideToID("about", 100);
+                setIsSmallMenuShown(false);
+            }
         },
         {
             label: "PRIVACY POLICY",
-            onClick: () => alert("Privacy Policy Clicked!")
+            onClick: () => {
+                slideToID("privacy_terms", 80);
+                setIsSmallMenuShown(false);
+            }
         },
         {
             label: "TERMS & CONDITIONS",
-            onClick: () => alert("Terms & Conditions Clicked!")
+            onClick: () => {
+                slideToID("privacy_terms", -170);
+                setIsSmallMenuShown(false);
+            }
         }
     ];
 
