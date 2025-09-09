@@ -4,6 +4,7 @@ import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import OpSec from "./components/opsec";
 import Privacy_Terms from "./components/privac&terms";
+import "katex/dist/katex.min.css";
 import { slideToID } from "./utility";
 
 export default function App() {
