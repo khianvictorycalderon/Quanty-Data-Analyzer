@@ -132,7 +132,7 @@ export default function OpSec() {
   };
 
   return (
-    <div className="bg-neutral-800 px-8 min-h-screen text-white">
+    <div className="bg-neutral-800 px-8 text-white">
       <InputSection input={input} setInput={setInput} onSolve={handleSolve} />
       <OutputSection opsecData={opsecData} />
     </div>
@@ -218,7 +218,7 @@ const OutputSection = ({ opsecData }: { opsecData: OpSecDataProps[] }) => {
           <h1 className="text-2xl font-bold flex-1/5 border-2 flex justify-center items-center p-2">
             {item.title}
           </h1>
-          <div className="flex-4/5 border-2 min-h-[150px] p-2">
+          <div className="flex-4/5 border-2 p-2">
             {item.content}
           </div>
         </div>
