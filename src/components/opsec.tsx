@@ -18,16 +18,30 @@ export default function OpSec() {
   });
 
   const [opsecData, setOpSecData] = useState<OpSecDataProps[]>([]);
+  const [error, setError] = useState<string>(""); // 🔹 NEW
 
   const handleSolve = () => {
-    if (!input.input) return;
+    setError(""); // reset error before validating
+
+    if (!input.input.trim()) {
+      setError("⚠️ Please enter a data set.");
+      return;
+    }
 
     const values = input.input
       .split(",")
       .map((num) => parseFloat(num.trim()))
       .filter((num) => !isNaN(num));
 
-    if (values.length === 0 || !input.type) return;
+    if (values.length === 0) {
+      setError("⚠️ Enter only numbers separated by commas.");
+      return;
+    }
+
+    if (!input.type) {
+      setError("⚠️ Please select a data type (Sample or Population).");
+      return;
+    }
 
     const n = values.length;
     const sum = values.reduce((a, b) => a + b, 0);
@@ -133,7 +147,7 @@ export default function OpSec() {
 
   return (
     <div className="bg-neutral-800 px-8 text-white">
-      <InputSection input={input} setInput={setInput} onSolve={handleSolve} />
+      <InputSection input={input} setInput={setInput} onSolve={handleSolve} error={error} />
       <OutputSection opsecData={opsecData} />
     </div>
   );
@@ -144,10 +158,12 @@ const InputSection = ({
   input,
   setInput,
   onSolve,
+  error,
 }: {
   input: InputFieldsProps;
   setInput: React.Dispatch<React.SetStateAction<InputFieldsProps>>;
   onSolve: () => void;
+  error: string;
 }) => {
   return (
     <div className="max-w-7xl mx-auto py-4 lg:py-8 flex flex-col-reverse md:flex-row gap-4 md:gap-8">
@@ -179,6 +195,9 @@ const InputSection = ({
             <option value="sample">Sample (n - 1)</option>
             <option value="population">Population (n)</option>
           </select>
+
+          {/* 🔹 Show error message */}
+          {error && <p className="text-red-400 mt-2">{error}</p>}
 
           <button
             className="bg-neutral-600 mt-8 mb-6 py-2 font-bold rounded-md cursor-pointer hover:bg-neutral-500 transform duration-300"
