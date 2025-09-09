@@ -108,17 +108,34 @@ export default function OpSec() {
     // ---------------- Variance ----------------
     const denom = input.type === "population" ? n : n - 1;
     const squaredDiffs = values.map((v) => Math.pow(v - mean, 2));
+    const diffs = values.map((v) => (v - mean).toFixed(2));
     const sumSqDiffs = squaredDiffs.reduce((a, b) => a + b, 0);
     const variance = sumSqDiffs / denom;
+
+    // Step 1: symbolic form
+    const step1 = values
+      .map((v) => `( ${v} - ${mean.toFixed(2)} )^2`)
+      .join(" + ");
+
+    // Step 2: numeric differences inside squares
+    const step2 = diffs.map((d) => `(${d})^2`).join(" + ");
+
+    // Step 3: squared results
+    const step3 = squaredDiffs.map((d) => d.toFixed(2)).join(" + ");
+
+    // Step 4: sum and divide
+    const step4 = `${sumSqDiffs.toFixed(2)} / ${denom} = ${variance.toFixed(2)}`;
 
     const varianceSteps = [
       input.type === "population"
         ? "\\sigma^2 = \\frac{\\Sigma (x - \\mu)^2}{N}"
         : "s^2 = \\frac{\\Sigma (x - \\bar{x})^2}{n-1}",
-      `= \\frac{${squaredDiffs.map((d) => d.toFixed(2)).join("+")}}{${denom}}`,
-      `= \\frac{${sumSqDiffs.toFixed(2)}}{${denom}}`,
-      `= ${variance.toFixed(2)}`,
+      step1,
+      step2,
+      step3 + ` = ${sumSqDiffs.toFixed(2)}`,
+      step4,
     ];
+
 
     // ---------------- Standard Deviation ----------------
     const stdDev = Math.sqrt(variance);
