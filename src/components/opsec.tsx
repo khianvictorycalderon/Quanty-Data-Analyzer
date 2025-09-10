@@ -107,33 +107,31 @@ export default function OpSec() {
 
     // ---------------- Variance ----------------
     const denom = input.type === "population" ? n : n - 1;
-    const squaredDiffs = values.map((v) => Math.pow(v - mean, 2));
-    const diffs = values.map((v) => (v - mean).toFixed(2));
-    const sumSqDiffs = squaredDiffs.reduce((a, b) => a + b, 0);
+
+    // Step 1: symbolic differences as fraction
+    const symbolicDiffsFraction = `\\frac{${values.map((v) => `(${v} - ${mean.toFixed(2)})^2`).join(" + ")}}{${denom}}`;
+
+    // Step 2: numeric differences as fraction
+    const numericDiffsFraction = `\\frac{${values.map((v) => `(${(v - mean).toFixed(2)})^2`).join(" + ")}}{${denom}}`;
+
+    // Step 3: squared numeric values summed as fraction
+    const squaredValuesArray = values.map((v) => Math.pow(v - mean, 2));
+    const squaredValuesStr = squaredValuesArray.map((d) => d.toFixed(2)).join(" + ");
+    const fractionForm = `\\frac{${squaredValuesStr}}{${denom}}`;
+
+    // Step 4: decimal result
+    const sumSqDiffs = squaredValuesArray.reduce((a, b) => a + b, 0);
     const variance = sumSqDiffs / denom;
-
-    // Step 1: symbolic form
-    const step1 = values
-      .map((v) => `( ${v} - ${mean.toFixed(2)} )^2`)
-      .join(" + ");
-
-    // Step 2: numeric differences inside squares
-    const step2 = diffs.map((d) => `(${d})^2`).join(" + ");
-
-    // Step 3: squared results
-    const step3 = squaredDiffs.map((d) => d.toFixed(2)).join(" + ");
-
-    // Step 4: sum and divide
-    const step4 = `${sumSqDiffs.toFixed(2)} / ${denom} = ${variance.toFixed(2)}`;
+    const decimalResult = `= ${variance.toFixed(2)}`;
 
     const varianceSteps = [
       input.type === "population"
         ? "\\sigma^2 = \\frac{\\Sigma (x - \\mu)^2}{N}"
         : "s^2 = \\frac{\\Sigma (x - \\bar{x})^2}{n-1}",
-      step1,
-      step2,
-      step3 + ` = ${sumSqDiffs.toFixed(2)}`,
-      step4,
+      symbolicDiffsFraction, // symbolic differences as fraction
+      numericDiffsFraction,  // numeric differences as fraction
+      fractionForm,          // squared numeric results as fraction
+      decimalResult,         // final decimal
     ];
 
 
@@ -192,11 +190,15 @@ const InputSection = ({
             type="text"
             placeholder="1,2,3,4,5,6..."
             value={input.input}
-            onChange={(e) =>
-              setInput((prev) => ({ ...prev, input: e.target.value }))
-            }
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow only digits, comma, minus sign, and prevent consecutive commas
+              if (/^(?!.*,,)[0-9,-]*$/.test(value)) {
+                setInput((prev) => ({ ...prev, input: value }));
+              }
+            }}
           />
-
+          
           <p className="font-bold mt-2">Data type: </p>
           <select
             className="bg-neutral-50 text-black mt-2 p-2 outline-none rounded focus:ring-2 focus:ring-blue-600 w-full md:w-[50%]"
@@ -248,7 +250,7 @@ const OutputSection = ({ opsecData }: { opsecData: OpSecDataProps[] }) => {
     <div className="max-w-7xl mx-auto flex flex-col pb-8">
       {opsecData.map((item, index) => (
         <div
-          className="flex flex-col md:flex-row border-b border-neutral-600"
+          className="flex flex-col border-b border-neutral-600"
           key={`${item.title}-${index}`}
         >
           <h1 className="text-2xl font-bold flex-1/5 border-2 flex justify-center items-center p-2">
